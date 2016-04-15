@@ -1,0 +1,682 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  
+    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  
+
+
+<link rel="stylesheet" type="text/css" href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" />
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.5.0"/>
+
+
+    <meta name="description" content="Just for writting..." />
+
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+<meta name="description" content="装饰器（decorator）
+装饰器（decorator）其实就是一个函数，一个用来“装饰”函数的函数，返回一个“装饰”之后的函数对象。装饰器经常被用于有切面需求的场景，较为经典的有插入日志、性能测试、缓存、权限校验等。简单的将，函数装饰器就是可以让我们为已有的函数在从种程度上增加额外的功能，即使原函数是不允许修改的。
+
+Function decorators let us “mark” func">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python装饰器(一)">
+<meta property="og:url" content="http://rainnie.me/2016/04/15/Python装饰器/index.html">
+<meta property="og:site_name" content="漱玉轩">
+<meta property="og:description" content="装饰器（decorator）
+装饰器（decorator）其实就是一个函数，一个用来“装饰”函数的函数，返回一个“装饰”之后的函数对象。装饰器经常被用于有切面需求的场景，较为经典的有插入日志、性能测试、缓存、权限校验等。简单的将，函数装饰器就是可以让我们为已有的函数在从种程度上增加额外的功能，即使原函数是不允许修改的。
+
+Function decorators let us “mark” func">
+<meta property="og:image" content="http://rainnie.me/file:///Users/aiver/Documents/closure.png">
+<meta property="og:updated_time" content="2016-04-15T10:29:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python装饰器(一)">
+<meta name="twitter:description" content="装饰器（decorator）
+装饰器（decorator）其实就是一个函数，一个用来“装饰”函数的函数，返回一个“装饰”之后的函数对象。装饰器经常被用于有切面需求的场景，较为经典的有插入日志、性能测试、缓存、权限校验等。简单的将，函数装饰器就是可以让我们为已有的函数在从种程度上增加额外的功能，即使原函数是不允许修改的。
+
+Function decorators let us “mark” func">
+<meta name="twitter:image" content="http://rainnie.me/file:///Users/aiver/Documents/closure.png">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: '[object Object]'
+  };
+</script>
+
+
+
+  <title> Python装饰器(一) | 漱玉轩 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">漱玉轩</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">盈盈一水间</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python装饰器(一)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-04-15T15:01:54+08:00" content="2016-04-15">
+              2016-04-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h4 id="装饰器（decorator）"><a href="#装饰器（decorator）" class="headerlink" title="装饰器（decorator）"></a>装饰器（decorator）</h4><hr>
+<p>装饰器（decorator）其实就是一个函数，一个用来“装饰”函数的函数，返回一个“装饰”之后的函数对象。装饰器经常被用于有切面需求的场景，较为经典的有插入日志、性能测试、缓存、权限校验等。简单的将，函数装饰器就是可以让我们为已有的函数在从种程度上增加额外的功能，即使原函数是不允许修改的。</p>
+<blockquote>
+<p>Function decorators let us “mark” functions in the source code to enhance their behavior in some way。</p>
+</blockquote>
+<p>装饰器是一个可调用对象，使用其它函数（被装饰的函数）作为参数，进行一些操作，返回被装饰的函数对象或者返回另外一个函数对象来替代被装饰的函数对象，或者甚至返回其它的可调用对象。<br><a id="more"></a><br>下面是一个简单的装饰器例子：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorate</span><span class="params">(func)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></span><br><span class="line">		print(<span class="string">'running inner()'</span>)</span><br><span class="line">	<span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line"><span class="meta">@decorate</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">target</span><span class="params">()</span>:</span></span><br><span class="line">	print(<span class="string">'running target()'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>在上面的例子中，函数decorate就是一个简单的装饰器，在上面的例子中也没有做太多的事情，就是打印了一行消息，如果运行target函数，将会有以下输出：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;target()</span><br><span class="line">running inner()</span><br></pre></td></tr></table></figure>
+<p>从上面的输出来看，装饰器已经用另外的函数对象（inner）替换了被装饰的函数（target），被装饰的函数（target）的功能已经和装饰前的功能无关了。<br>在上面的例子中，我们使用<code>@decorate</code>来调用装饰器，严格来说，装饰器只是python的语法糖（syntactic sugar），我们可以像使用python中其它的可调用对象一样使用装饰器，传入被装饰的函数对象作为参数即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">target = decrotate(target)</span><br></pre></td></tr></table></figure></p>
+<p>上面的调用方式和前面的例子产生的效果是一样的，只不过前面的写法更为简便。有时候装饰器确实更为简便，特别是在进行元编程（metaprogramming）的时候。<br>一般而言，我们会将装饰器和所装饰的函数定义在不同的模块，需要使用装饰器时导入装饰器所在的模块即可。装饰器在所在的模块（module）被导入（import）的时候就开始执行了，即导入装饰器所在模块时就马上执行了，而被装饰的函数在被显式调用时才会执行，这个就是我们所说的导入时（importtime）和运行时（runtime）的区别。<br>就像我们上面例子里所看到的，很多的装饰器确实会改变所装饰的函数，通过在函数里面定义另外的函数，然后返回所定义的函数对象来替代被装饰的函数对象。理解函数里面的函数（inner function）首先要理解python里面的闭包（closure）概念。  </p>
+<h4 id="闭包（closure）"><a href="#闭包（closure）" class="headerlink" title="闭包（closure）"></a>闭包（closure）</h4><hr>
+<p>让我们先来看看python里面的变量范围（variable scope）法则，假定有如下函数定义：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">(a)</span>:</span></span><br><span class="line">    print(a)</span><br><span class="line">    print(b)</span><br></pre></td></tr></table></figure></p>
+<p>如果我们调用函数f1的话，将会有以下输出：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>f1(<span class="number">3</span>)</span><br><span class="line"><span class="number">3</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">3</span>, <span class="keyword">in</span> f1</span><br><span class="line">NameError: <span class="keyword">global</span> name <span class="string">'b'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br></pre></td></tr></table></figure></p>
+<p>这个错误的产生毫无悬念，因为变量b确实没有被定义，如果我们给变量b赋值然后再调用函数f1，它就会正常工作了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; b = 6</span><br><span class="line">&gt;&gt;&gt; f1(3)</span><br><span class="line">3</span><br><span class="line">6</span><br></pre></td></tr></table></figure></p>
+<p>但如果我们再定义一个函数f2:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f2</span><span class="params">(a)</span>:</span></span><br><span class="line">	print(a)</span><br><span class="line">	print(b)</span><br><span class="line">	b = <span class="number">9</span></span><br></pre></td></tr></table></figure></p>
+<p>并且在调用f2之前给变量b赋值，结果会是怎样呢？<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = <span class="number">6</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f2(<span class="number">3</span>)</span><br><span class="line"><span class="number">3</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">3</span>, <span class="keyword">in</span> f2</span><br><span class="line">UnboundLocalError: local variable <span class="string">'b'</span> referenced before assignment</span><br></pre></td></tr></table></figure></p>
+<p>注意到上面的结果中先输出了3，证明print(a)语句被执行了，但是第二条语句print(b)却没有执行，大大出乎我的意料，开始我以为会输出6（至少java里面会这样），因为全局变量b在print(b)语句之前已经定义并被赋值了。<br>这不是一个bug，而是python语言设计时的选择：Python不要求你进行变量声明，但是会假定如果你在一个函数体里面对一个变量进行了赋值（assigned），那么那个变量默认就是局部（local）变量。这可以避免像JavaScript一类语言（也不要求对变量进行声明）所产生的问题：如果你在使用变量前忘记对变量进行声明（如通过var关键字），你可能会直接使用一个你根本不知道的同名变量的值。<br>回到前面的例子，如果我们要在函数体内使用全局变量b应该如何操作呢？可以使用global关键字：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f3</span><span class="params">(a)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> b</span><br><span class="line">    print(a)</span><br><span class="line">    print(b)</span><br><span class="line">    b = <span class="number">9</span></span><br></pre></td></tr></table></figure></p>
+<p>此时调用f3会有如下结果：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = <span class="number">6</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f3(<span class="number">3</span>)</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看到，上面的变量b已经是全局变量了，对其在函数内赋值也改变了其原来的值了。了解了python变量范围法则，下面就可以介绍闭包了（closure）：  </p>
+<blockquote>
+<p>a closure is a function with an extended scope that encompasses nonglobal variables referenced in the body of the function but not defined there。</p>
+</blockquote>
+<p>简单的说，闭包就是一个函数，此函数具有扩展的变量访问范围，在函数内部可以访问到未在函数里面定义的非全局变量。举一个简单的例子：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_averager</span><span class="params">()</span>:</span></span><br><span class="line">	series = []</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">averager</span><span class="params">(new_value)</span>:</span></span><br><span class="line">		series.append(new_value)</span><br><span class="line">		total = sum(series)</span><br><span class="line">		<span class="keyword">return</span> total/len(series)</span><br><span class="line">	<span class="keyword">return</span> averager</span><br><span class="line">	</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>avg = make_averager()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>avg(<span class="number">10</span>)</span><br><span class="line"><span class="number">10.0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>avg(<span class="number">11</span>)</span><br><span class="line"><span class="number">10.5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>avg(<span class="number">12</span>)</span><br><span class="line"><span class="number">11.0</span></span><br></pre></td></tr></table></figure></p>
+<p>注意到变量series是函数make_averager内的局部变量，因为series 的初始化是在make_averager函数体内。但是调用avg(10)时，make_averager也返回了，并且其局部变量series的范围扩展了，在内部函数averager内部也可以访问了。<br>在函数averager内部，series是一个“自由变量”（free variable），即变量不再绑定（bound）到它所定义的局部范围了，访问范围扩展了：<br><img src="file:///Users/aiver/Documents/closure.png" alt="Mou icon"></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/07/mac下访问国内网络不走vpn路由设置/" rel="next" title="mac下访问国内网络不走vpn路由设置">
+                <i class="fa fa-chevron-left"></i> mac下访问国内网络不走vpn路由设置
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/uploads/avatar.jpg" alt="rainnie" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">rainnie</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">Just for writting...</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#装饰器（decorator）"><span class="nav-number">1.</span> <span class="nav-text">装饰器（decorator）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包（closure）"><span class="nav-number">2.</span> <span class="nav-text">闭包（closure）</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">rainnie</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.5.0"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.5.0"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.5.0" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.5.0"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.5.0" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+
+      motionIntegrator.bootstrap();
+    });
+  </script>
+
+  
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
