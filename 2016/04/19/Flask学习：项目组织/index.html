@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="python flask," />
 
 
 
@@ -45,16 +45,16 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
 
 
-<meta name="description" content="因为一些国内的客观原因，google 的访问速度一直很慢，而hexo是由台湾人开发的系统，里面用到了google&amp;gt;    字体库。所以生成页面后，访问系统总是会耗费一大部分的时间在加载google字体库上，而且经常加载不成功。解决的办法是可以用国内的CDN库来替代主题中的google字体库，更改方法如下：">
+<meta name="description" content="Flask 是一个使用 Python 编写的轻量级 Web 应用框架。其 WSGI 工具箱采用 Werkzeug ，模板引擎则使用 Jinja2。Flask 也被称为 “microframework” ，因为它使用简单的核心，用 extension 增加其他功能。Flask没有默认使用的数据库、窗体验证工具。然而，Flask保留了扩增的弹性，可以用Flask-extension加入这些功能：ORM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 更改默认Google 字体库">
-<meta property="og:url" content="http://rainnie.me/2016/03/11/Hexo-更改默认Google-字体库/index.html">
+<meta property="og:title" content="Flask学习：项目组织">
+<meta property="og:url" content="http://rainnie.me/2016/04/19/Flask学习：项目组织/index.html">
 <meta property="og:site_name" content="漱玉轩">
-<meta property="og:description" content="因为一些国内的客观原因，google 的访问速度一直很慢，而hexo是由台湾人开发的系统，里面用到了google&amp;gt;    字体库。所以生成页面后，访问系统总是会耗费一大部分的时间在加载google字体库上，而且经常加载不成功。解决的办法是可以用国内的CDN库来替代主题中的google字体库，更改方法如下：">
-<meta property="og:updated_time" content="2016-03-24T09:53:48.000Z">
+<meta property="og:description" content="Flask 是一个使用 Python 编写的轻量级 Web 应用框架。其 WSGI 工具箱采用 Werkzeug ，模板引擎则使用 Jinja2。Flask 也被称为 “microframework” ，因为它使用简单的核心，用 extension 增加其他功能。Flask没有默认使用的数据库、窗体验证工具。然而，Flask保留了扩增的弹性，可以用Flask-extension加入这些功能：ORM">
+<meta property="og:updated_time" content="2016-04-26T02:59:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo 更改默认Google 字体库">
-<meta name="twitter:description" content="因为一些国内的客观原因，google 的访问速度一直很慢，而hexo是由台湾人开发的系统，里面用到了google&amp;gt;    字体库。所以生成页面后，访问系统总是会耗费一大部分的时间在加载google字体库上，而且经常加载不成功。解决的办法是可以用国内的CDN库来替代主题中的google字体库，更改方法如下：">
+<meta name="twitter:title" content="Flask学习：项目组织">
+<meta name="twitter:description" content="Flask 是一个使用 Python 编写的轻量级 Web 应用框架。其 WSGI 工具箱采用 Werkzeug ，模板引擎则使用 Jinja2。Flask 也被称为 “microframework” ，因为它使用简单的核心，用 extension 增加其他功能。Flask没有默认使用的数据库、窗体验证工具。然而，Flask保留了扩增的弹性，可以用Flask-extension加入这些功能：ORM">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -66,7 +66,7 @@
 
 
 
-  <title> Hexo 更改默认Google 字体库 | 漱玉轩 </title>
+  <title> Flask学习：项目组织 | 漱玉轩 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -201,7 +201,7 @@
             
             
               
-                Hexo 更改默认Google 字体库
+                Flask学习：项目组织
               
             
           </h1>
@@ -210,8 +210,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-03-11T11:23:46+08:00" content="2016-03-11">
-              2016-03-11
+            <time itemprop="dateCreated" datetime="2016-04-19T23:19:11+08:00" content="2016-04-19">
+              2016-04-19
             </time>
           </span>
 
@@ -220,8 +220,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
                   </a>
                 </span>
 
@@ -249,9 +249,74 @@
       
 
       
-        <span itemprop="articleBody"><p>因为一些国内的客观原因，google 的访问速度一直很慢，而hexo是由台湾人开发的系统，里面用到了google&gt;    字体库。所以生成页面后，访问系统总是会耗费一大部分的时间在加载google字体库上，而且经常加载不成功。<br>解决的办法是可以用国内的CDN库来替代主题中的google字体库，更改方法如下：<br><a id="more"></a><br>shell中运行如下命令：      </p>
-<pre><code>grep -ir fonts.google themes/
-</code></pre><p>找到对应的google字体库地方，用国内的CDN字体库替换，如360字体库：<br>360前端公共库CDN：<a href="http://libs.useso.com/" target="_blank" rel="external">http://libs.useso.com/</a></p>
+        <span itemprop="articleBody"><p>Flask 是一个使用 Python 编写的轻量级 Web 应用框架。其 WSGI 工具箱采用 Werkzeug ，模板引擎则使用 Jinja2。Flask 也被称为 “microframework” ，因为它使用简单的核心，用 extension 增加其他功能。Flask没有默认使用的数据库、窗体验证工具。然而，Flask保留了扩增的弹性，可以用Flask-extension加入这些功能：ORM、窗体验证工具、文件上传、各种开放式身份验证技术。<br>Flask把项目组织的职责交由用户自己，使项目具有很大的灵活性，但是这意味着用户不得不思考怎么组织你的代码。 可以把这个应用放到一个文件中，或者把它分割多个包。然而这两种结构并不适合大多数项目。 这里有一些固定的组织模式，可以遵循它们以便于开发和部署。<br><a id="more"></a></p>
+<h4 id="约定"><a href="#约定" class="headerlink" title="约定"></a>约定</h4><hr>
+<p>版本库（Repository）：应用的根目录，在开始建立时都会初始化为版本控制的目录，以便及时将程序及时推送到本地或远程的版本库。<br>包（Package）：包含了应用代码的一个包，版本库的一个子目录。<br>模块（Module）：一个模块是一个简单的、可以被其它Python文件引入的Python文件。一个包由多个模块组成。</p>
+<h4 id="项目组织"><a href="#项目组织" class="headerlink" title="项目组织"></a>项目组织</h4><hr>
+<ul>
+<li>单一模块<br>许多Flask例子里，我们会看到里面把所有的代码放到一个单一文件中，通常是app.py或myapp.py，如官方的示例代码。对于一些微项目或功能单一的项目，这是一个方便的组织方式，比较需要处理的路由（route）少并且代码量也不大。单一模块的应用组织方式通常如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.py</span><br><span class="line">config.py</span><br><span class="line">requiremnts.txt</span><br><span class="line">static/</span><br><span class="line">templates/</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在上述组织中，应用逻辑部分通常会存放在app.py中。</p>
+<ul>
+<li><p>包<br>当项目开始变得复杂时，需要处理的路由越来越多，需要为模型（model）和表单（form）定义单独的类，代码量也越来越大，这个时候如果还采取单一模块的方式就会让人变得焦头烂额，同时让code review变得越来越难。为了解决这个问题，可以把应用中不同的组件分开到单独的、高内聚的一组模块——即包中。<br>  基于包的组织方式通常如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">config.py</span><br><span class="line">requirments.txt</span><br><span class="line">run.py</span><br><span class="line">instance/</span><br><span class="line">    /config.py</span><br><span class="line">youapp/</span><br><span class="line">    /__init__.py</span><br><span class="line">    /views.py</span><br><span class="line">    /models.py</span><br><span class="line">    /forms.py</span><br><span class="line">    /static/</span><br><span class="line">    /templates/</span><br></pre></td></tr></table></figure>
+<p>  这种组织模式允许我们有序的整理应用不同组件，将有关模型的定义全部放在models.py，有关路由的定义全部放在views.py里面，有关表单的定义全部放在forms.py里面。<br>  下面列出了大多数Flask应用都有的基本组件，对于实际的应用可能还会需要一些别的文件，但这适用于大多数Flask应用：  </p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>run.py</td>
+<td>这个文件中用于启动一个开发服务器。它从你的包获得应用的副本并运行它。这不会在生产环境中用到，不过依然在许多Flask开发的过程中看到</td>
+</tr>
+<tr>
+<td>requirments.txt</td>
+<td>这个文件列出了应用所依赖的所有Python包，可以用pip freeze命令生成，一般可能需要把它分成生产依赖和开发依赖。</td>
+</tr>
+<tr>
+<td>config.py</td>
+<td>这个文件包含了应用所需要的大多数配置参数</td>
+</tr>
+<tr>
+<td>instance/config.py</td>
+<td>这个文件包含不应该出现在版本控制的配置变量。其中有类似调用密钥和数据库URI连接密码。同样也包括了你的应用中特有的不能放到阳光下的东西。比如，你可能在config.py中设定DEBUG = False，但在你自己的开发机上的instance/config.py设置DEBUG = True。因为这个文件可以在config.py之后被载入，它将覆盖掉DEBUG = False，并设置DEBUG = True。</td>
+</tr>
+<tr>
+<td>yourapp/</td>
+<td>这个包里包括了所开发的应用。</td>
+</tr>
+<tr>
+<td>yourapp/<strong>init</strong>.py</td>
+<td>这个文件初始化应用并把所有其他需要的组件组合在一起。</td>
+</tr>
+<tr>
+<td>yourapp/views.py</td>
+<td>这个文件定义了所有的路由，如果需要也可以作为一个包(yourapp/views/)，由一些包含了紧密相联的路由的模块组成。</td>
+</tr>
+<tr>
+<td>yourapp/models.py</td>
+<td>这个文件定义了应用的模型，如果需要，也可以像views.py一样把它分割成许多模块。</td>
+</tr>
+<tr>
+<td>yourapp/static/</td>
+<td>这个目录包括了公共的资源文件，CSS、JS、img及其它你想通过应用展示出去的静态文件，默认可以通过yourapp.com/static/获取这些文件。</td>
+</tr>
+<tr>
+<td>yourapp/templates/</td>
+<td>这个目录放置着应用的Jinja2模板。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Blueprints<br>有朝一日你可能会发觉应用里有许多相关的路由了，此时会将views.py分割成一个包并把相关的路由组织成模块，Flask提供了蓝图（blueprints）来更好的组织项目。<br>蓝图是按照一定程度上的自组织的方式，作为应用的一部分的组件。 它们表现得就像你的应用下的子应用一样。可以使用不同的蓝图来对应管理面板（admin panel），前端（front-end）和用户面板（user dashboard）。 这使得你按照组件组织视图，静态文件和模板，并在组件间共享模型，表单和你的应用的其他部分。</li>
+</ul>
 </span>
       
     </div>
@@ -260,7 +325,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/python-flask/" rel="tag">#python flask</a>
           
         </div>
       
@@ -269,12 +334,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/04/19/git常用操作总结/" rel="next" title="Git常用操作总结">
+                <i class="fa fa-chevron-left"></i> Git常用操作总结
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/13/利用git-解决hexo博客多PC-间同步问题/" rel="prev" title="利用git 解决hexo博客多PC 间同步问题">
-                利用git 解决hexo博客多PC 间同步问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/25/Hexo常见报错“Error-Cannot-find-module”解决办法/" rel="prev" title="Hexo常见报错“Error: Cannot find module”解决办法">
+                Hexo常见报错“Error: Cannot find module”解决办法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -382,7 +451,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#约定"><span class="nav-number">1.</span> <span class="nav-text">约定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#项目组织"><span class="nav-number">2.</span> <span class="nav-text">项目组织</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

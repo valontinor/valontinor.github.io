@@ -45,16 +45,19 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
 
 
-<meta name="description" content="因为一些国内的客观原因，google 的访问速度一直很慢，而hexo是由台湾人开发的系统，里面用到了google&amp;gt;    字体库。所以生成页面后，访问系统总是会耗费一大部分的时间在加载google字体库上，而且经常加载不成功。解决的办法是可以用国内的CDN库来替代主题中的google字体库，更改方法如下：">
+<meta name="description" content="错误描述
+Hexo是一个非常好用的静态博客生成器，但是由于很多方面的原因，导致在使用过程中经常出现错误。这些错误中，有些是因为自己的设置不当，导致程序报错；有些是因为版本更迭，导致原有的设置失效；而有些，则是Hexo程序本身的BUG。本文解决安装完毕后，启动server时报“Error: Cannot find module”错误的解决办法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 更改默认Google 字体库">
-<meta property="og:url" content="http://rainnie.me/2016/03/11/Hexo-更改默认Google-字体库/index.html">
+<meta property="og:title" content="Hexo常见报错“Error: Cannot find module”解决办法">
+<meta property="og:url" content="http://rainnie.me/2016/04/25/Hexo常见报错“Error-Cannot-find-module”解决办法/index.html">
 <meta property="og:site_name" content="漱玉轩">
-<meta property="og:description" content="因为一些国内的客观原因，google 的访问速度一直很慢，而hexo是由台湾人开发的系统，里面用到了google&amp;gt;    字体库。所以生成页面后，访问系统总是会耗费一大部分的时间在加载google字体库上，而且经常加载不成功。解决的办法是可以用国内的CDN库来替代主题中的google字体库，更改方法如下：">
-<meta property="og:updated_time" content="2016-03-24T09:53:48.000Z">
+<meta property="og:description" content="错误描述
+Hexo是一个非常好用的静态博客生成器，但是由于很多方面的原因，导致在使用过程中经常出现错误。这些错误中，有些是因为自己的设置不当，导致程序报错；有些是因为版本更迭，导致原有的设置失效；而有些，则是Hexo程序本身的BUG。本文解决安装完毕后，启动server时报“Error: Cannot find module”错误的解决办法。">
+<meta property="og:updated_time" content="2016-04-26T02:59:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo 更改默认Google 字体库">
-<meta name="twitter:description" content="因为一些国内的客观原因，google 的访问速度一直很慢，而hexo是由台湾人开发的系统，里面用到了google&amp;gt;    字体库。所以生成页面后，访问系统总是会耗费一大部分的时间在加载google字体库上，而且经常加载不成功。解决的办法是可以用国内的CDN库来替代主题中的google字体库，更改方法如下：">
+<meta name="twitter:title" content="Hexo常见报错“Error: Cannot find module”解决办法">
+<meta name="twitter:description" content="错误描述
+Hexo是一个非常好用的静态博客生成器，但是由于很多方面的原因，导致在使用过程中经常出现错误。这些错误中，有些是因为自己的设置不当，导致程序报错；有些是因为版本更迭，导致原有的设置失效；而有些，则是Hexo程序本身的BUG。本文解决安装完毕后，启动server时报“Error: Cannot find module”错误的解决办法。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -66,7 +69,7 @@
 
 
 
-  <title> Hexo 更改默认Google 字体库 | 漱玉轩 </title>
+  <title> Hexo常见报错“Error: Cannot find module”解决办法 | 漱玉轩 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -201,7 +204,7 @@
             
             
               
-                Hexo 更改默认Google 字体库
+                Hexo常见报错“Error: Cannot find module”解决办法
               
             
           </h1>
@@ -210,8 +213,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-03-11T11:23:46+08:00" content="2016-03-11">
-              2016-03-11
+            <time itemprop="dateCreated" datetime="2016-04-25T23:59:05+08:00" content="2016-04-25">
+              2016-04-25
             </time>
           </span>
 
@@ -220,8 +223,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
                   </a>
                 </span>
 
@@ -249,9 +252,33 @@
       
 
       
-        <span itemprop="articleBody"><p>因为一些国内的客观原因，google 的访问速度一直很慢，而hexo是由台湾人开发的系统，里面用到了google&gt;    字体库。所以生成页面后，访问系统总是会耗费一大部分的时间在加载google字体库上，而且经常加载不成功。<br>解决的办法是可以用国内的CDN库来替代主题中的google字体库，更改方法如下：<br><a id="more"></a><br>shell中运行如下命令：      </p>
-<pre><code>grep -ir fonts.google themes/
-</code></pre><p>找到对应的google字体库地方，用国内的CDN字体库替换，如360字体库：<br>360前端公共库CDN：<a href="http://libs.useso.com/" target="_blank" rel="external">http://libs.useso.com/</a></p>
+        <span itemprop="articleBody"><h4 id="错误描述"><a href="#错误描述" class="headerlink" title="错误描述"></a>错误描述</h4><hr>
+<p>Hexo是一个非常好用的静态博客生成器，但是由于很多方面的原因，导致在使用过程中经常出现错误。这些错误中，有些是因为自己的设置不当，导致程序报错；有些是因为版本更迭，导致原有的设置失效；而有些，则是Hexo程序本身的BUG。本文解决安装完毕后，启动server时报“Error: Cannot find module”错误的解决办法。<br><a id="more"></a></p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><hr>
+<p>安装完hexo，启动server时，有时候hexo会报如下错误：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/Release/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/default/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/Debug/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>虽然server也可以正常启动，但每次都出现这样的错误总归是不舒服。解决方法如下：</p>
+<ol>
+<li><p>删除原有的hexo版本</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> hexo</span><br><span class="line">rm -rf /path/to/hexo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新npm到最新版本（可选）</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install npm -g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装全局hexo</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g --no-optional</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化目录</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行hexo server</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s    //或hexo server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用–no-optional选项安装hexo（可选）<br>如果运行server后，仍然报“Error: Cannot find module”之类的错误，可以再运行如下命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo --no-optional</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>一般进行到第5步就可以正常运行了，如果第5步仍然报错再进行第6步，然后启动server，问题解决。</p>
+<p><strong>本文欢迎转载，但是恳请保留贡献者信息，谢谢！</strong></p>
 </span>
       
     </div>
@@ -269,13 +296,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/04/19/Flask学习：项目组织/" rel="next" title="Flask学习：项目组织">
+                <i class="fa fa-chevron-left"></i> Flask学习：项目组织
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/13/利用git-解决hexo博客多PC-间同步问题/" rel="prev" title="利用git 解决hexo博客多PC 间同步问题">
-                利用git 解决hexo博客多PC 间同步问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -382,7 +409,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误描述"><span class="nav-number">1.</span> <span class="nav-text">错误描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
