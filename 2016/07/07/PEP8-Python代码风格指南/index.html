@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python," />
 
 
 
@@ -45,15 +45,40 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
 
 
-<meta name="description" content="Just for writting...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="漱玉轩">
-<meta property="og:url" content="http://rainnie.me/index.html">
+<meta name="description" content="介绍（Introduction）
+
+这篇文档翻译自PEP8，说明了Python主要发行版中标准库代码所遵守的规范，旨在提供一个python的编码规范指南。很多项目都有自己的一套风格，本文旨在为其提供一个参考。
+代码布局（Code Lay-Out)
+
+1.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;缩进（Indentation）
+
+每个缩进级别采用4个空格。
+续行应将换行的元素垂直对齐，可以使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PEP8(Python代码风格指南)（一）">
+<meta property="og:url" content="http://rainnie.me/2016/07/07/PEP8-Python代码风格指南/index.html">
 <meta property="og:site_name" content="漱玉轩">
-<meta property="og:description" content="Just for writting...">
+<meta property="og:description" content="介绍（Introduction）
+
+这篇文档翻译自PEP8，说明了Python主要发行版中标准库代码所遵守的规范，旨在提供一个python的编码规范指南。很多项目都有自己的一套风格，本文旨在为其提供一个参考。
+代码布局（Code Lay-Out)
+
+1.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;缩进（Indentation）
+
+每个缩进级别采用4个空格。
+续行应将换行的元素垂直对齐，可以使用">
+<meta property="og:updated_time" content="2016-08-03T02:43:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="漱玉轩">
-<meta name="twitter:description" content="Just for writting...">
+<meta name="twitter:title" content="PEP8(Python代码风格指南)（一）">
+<meta name="twitter:description" content="介绍（Introduction）
+
+这篇文档翻译自PEP8，说明了Python主要发行版中标准库代码所遵守的规范，旨在提供一个python的编码规范指南。很多项目都有自己的一套风格，本文旨在为其提供一个参考。
+代码布局（Code Lay-Out)
+
+1.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;缩进（Indentation）
+
+每个缩进级别采用4个空格。
+续行应将换行的元素垂直对齐，可以使用">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -65,7 +90,7 @@
 
 
 
-  <title> 漱玉轩 </title>
+  <title> PEP8(Python代码风格指南)（一） | 漱玉轩 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -86,9 +111,7 @@
 
 
 
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -184,9 +207,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div id="content" class="content"> 
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -202,9 +225,7 @@
             
             
               
-                <a class="post-title-link" href="/2016/07/07/PEP8-Python代码风格指南/" itemprop="url">
-                  PEP8(Python代码风格指南)（一）
-                </a>
+                PEP8(Python代码风格指南)（一）
               
             
           </h1>
@@ -252,10 +273,7 @@
       
 
       
-        
-          <span itemprop="articleBody">
-            
-              <p>介绍（Introduction）</p>
+        <span itemprop="articleBody"><p>介绍（Introduction）</p>
 <hr>
 <p>这篇文档翻译自PEP8，说明了Python主要发行版中标准库代码所遵守的规范，旨在提供一个python的编码规范指南。很多项目都有自己的一套风格，本文旨在为其提供一个参考。</p>
 <p>代码布局（Code Lay-Out)</p>
@@ -342,857 +360,55 @@
 </li>
 <li>避免使用通配符式的import（from <module> import *），因为这样会造成在当前命名空间出现的命名含义不清晰，给读者和许多自动化工具造成困扰。有一种可以正当使用通配符的情形：将一个内部接口重新发布成公共API的一部分（比如，使用备用的加速模块中的定义去覆盖纯python实现的接口，被覆盖的定义恰好不能提前知晓）。<br>当使用这种方式重新发布命名时，后面关于公共和内部接口的部分仍然适用。</module></li>
 </ul>
-
-            
-          </span>
-        
+</span>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2016/06/13/HTTP协议介绍/" itemprop="url">
-                  HTTP协议介绍
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-06-13T10:38:12+08:00" content="2016-06-13">
-              2016-06-13
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/python/" rel="tag">#python</a>
           
-            
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
       
 
       
-        
-          <p>本文主要介绍HTTP协议的基本内容及相关的知识。</p>
-<h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3><hr>
-<p>HTTP全称为超文本传输（转移）协议（HyperText Transfer Protocol），设计之初是为了将<strong>超文本标记语言（HTML）</strong>文档从web服务器传送到客户端浏览器，现在http的作用已不局限于HTML的传输。HTTP主要有三个大的版本：http/1.0、http/1.1*、http/2.0。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/13/HTTP协议介绍/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/13/HTTP协议介绍/" rel="next" title="HTTP协议介绍">
+                <i class="fa fa-chevron-left"></i> HTTP协议介绍
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                <a class="post-title-link" href="/2016/06/06/MySQL常用命令笔记/" itemprop="url">
-                  MySQL常用命令笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-06-06T15:01:03+08:00" content="2016-06-06">
-              2016-06-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
       
 
       
-        
-          <p>本文归纳总结了一些MySQL/MariaDB常用的语句和命令，便于以后查询使用。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/06/MySQL常用命令笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2016/06/03/MySQL与MariaDB数据库的备份与恢复/" itemprop="url">
-                  MySQL与MariaDB数据库的备份与恢复
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-06-03T10:02:33+08:00" content="2016-06-03">
-              2016-06-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Database/" itemprop="url" rel="index">
-                    <span itemprop="name">Database</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="备份简介"><a href="#备份简介" class="headerlink" title="备份简介"></a>备份简介</h3><p>备份是数据库的最后一道防线，对于任何数据丢失的场景，备份虽然不一定能恢复百分百的数据（取决于备份周期和策略），但至少能将损失降到最低。衡量备份恢复有两个重要指标：恢复点目标（RPO）和恢复时间目标（RTO），前者重点关注能恢复到什么程度，而后者则重点关注恢复需要多长时间。一般而言，数据库备份有冷备份和热备份两种方法，前者比较慢，须关闭数据库，恢复在时间点上进行；后者比较快，无须关闭数据库，恢复亦较快。本文重点关注热备份。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/03/MySQL与MariaDB数据库的备份与恢复/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    <div class="post-spread">
       
     </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2016/05/11/MySQL数据库存储引擎/" itemprop="url">
-                  MySQL数据库存储引擎
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-05-11T10:19:09+08:00" content="2016-05-11">
-              2016-05-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>文自 <a href="http://pangge.blog.51cto.com/6013757/1303893">pangge</a>。</p>
-<h4 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h4><p>存储引擎就是值表的类型。数据库的存储引擎决定了表在计算机中的存储方式。存储引擎的概念是MySQL的特点，而且是一个插入式的存储引擎概念。这就决定了MySQL数据库中的表可以使用不同的存储方式存储。用户可以根据自己的不同要求，选择不同的存储方式、是否进行事务处理等等。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/11/MySQL数据库存储引擎/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2016/04/27/Flask学习：介绍/" itemprop="url">
-                  Flask学习：介绍
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-04-27T17:29:28+08:00" content="2016-04-27">
-              2016-04-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>文自 <a href="http://blog.igevin.info/posts/flask-startup-guideline/"><em>Flask 入门指南</em></a> ，By&nbsp;&nbsp;<a href="http://blog.igevin.info/">Gevin</a>，转载学习。</p>
-<p><img src="http://7xte88.com2.z0.glb.clouddn.com/flask-get-started.png" alt="flask"></p>
-<p>1.&nbsp;&nbsp;&nbsp;&nbsp;初识Flask<br>Flask 是一个微框架（Micro framework），其<a href="http://flask.pocoo.org/"><em>官方文档</em></a>的前言部分对Flask做了很清楚的定性介绍：</p>
-<blockquote>
-<p><em>“微”（Micro）是什么意思？</em><br><em>“微”(micro) 并不意味着你要把整个web应用放到一个python文件里（虽然确实可以），也不意味着Flask 在功能上有所欠缺。微框架中的“微”意味着 Flask 旨在保持核心功能的简单而易于扩展。Flask 不会替你做出太多决策，比如使用何种数据库。而那些 Flask 帮你做好的决策（比如使用哪种模板引擎），都是很容易替换。除此之外的一切都由可由你掌握。</em></p>
-<p><em>默认情况下，Flask 不包含数据库抽象层、表单验证，或是任何已在其它已库中处理的很好的功能。相反，Flask 支持通过扩展来给应用添加这些功能，如同是 Flask 本身实现的一样。众多的扩展提供了数据库集成、表单验证、上传处理及各种各样的开放认证技术等功能。Flask 也许是“微小”的，但它已准备好在复杂的生产环境中投入使用。</em></p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/27/Flask学习：介绍/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2016/04/27/RESTful架构风格概述/" itemprop="url">
-                  RESTful架构风格概述
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-04-27T16:08:11+08:00" content="2016-04-27">
-              2016-04-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>文自 <a href="http://blog.igevin.info/posts/restful-architecture-in-general/">RESTful 架构风格概述</a>， 转载至此学习。</p>
-<p>在移动互联网的大潮下，随着docker等技术的兴起，『微服务』的概念也越来越被大家接受并应用于实践，日益增多的web service逐渐统一于RESTful 架构风格，如果开发者对RESTful 架构风格不甚了解，则开发出的所谓RESTful API总会貌合神离，不够规范。  </p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/27/RESTful架构风格概述/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2016/04/26/过年那些事/" itemprop="url">
-                  过年那些事
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-04-26T23:56:05+08:00" content="2016-04-26">
-              2016-04-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>旧文迁移。</em></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;小时候，最盼望的节日莫过于过年。那短短的几天，却集中了一年最好的享受。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们放鞭炮穿新衣吃丰盛大餐，我们去亲戚家串门、拜年、收压岁钱……记忆里的过年，是如此欢乐如此温暖。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如今，不需等到过年，我们也能享受到以往过年才能享受的。过年已经无足轻重，我们不再欢欣雀跃春节的到来，过年只是为了回家和家人团聚，聚在一起吃团年饭，过年的欣喜正在慢慢的褪去。  </p>
-<p><p style="text-align:right">————谨以此文纪念那些逝去的、快乐的新年</p><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/26/过年那些事/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2016/04/26/Python装饰器（二）/" itemprop="url">
-                  Python装饰器（二）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-04-26T11:06:55+08:00" content="2016-04-26">
-              2016-04-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h4 id="简单的装饰器"><a href="#简单的装饰器" class="headerlink" title="简单的装饰器"></a>简单的装饰器</h4><hr>
-<p>装饰器是一个可调用对象，使用其它函数（被装饰的函数）作为参数，进行一些操作，返回被装饰的函数对象或者返回另外一个函数对象来替代被装饰的函数对象，或者甚至返回其它的可调用对象。<br>上文介绍了Python中的闭包（closure），它是装饰器的基础。下面先来看一个简单的装饰器例子：<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/26/Python装饰器（二）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                <a class="post-title-link" href="/2016/04/25/Hexo常见报错“Error-Cannot-find-module”解决办法/" itemprop="url">
-                  Hexo常见报错“Error: Cannot find module”解决办法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-04-25T23:59:05+08:00" content="2016-04-25">
-              2016-04-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h4 id="错误描述"><a href="#错误描述" class="headerlink" title="错误描述"></a>错误描述</h4><hr>
-<p>Hexo是一个非常好用的静态博客生成器，但是由于很多方面的原因，导致在使用过程中经常出现错误。这些错误中，有些是因为自己的设置不当，导致程序报错；有些是因为版本更迭，导致原有的设置失效；而有些，则是Hexo程序本身的BUG。本文解决安装完毕后，启动server时报“Error: Cannot find module”错误的解决办法。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/25/Hexo常见报错“Error-Cannot-find-module”解决办法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+  </div>
 
  </div>
 
         
 
+        
+          <div class="comments" id="comments">
+            
+          </div>
         
       </div>
 
@@ -1213,8 +429,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" src="/uploads/avatar.jpg" alt="rainnie" itemprop="image"/>
           <p class="site-author-name" itemprop="name">rainnie</p>
@@ -1259,6 +484,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
       
 
     </div>
@@ -1329,6 +565,165 @@
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.5.0" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
 
   <script type="text/javascript">
     $(document).ready(function () {
