@@ -254,13 +254,13 @@
 <p>版本库（Repository）：应用的根目录，在开始建立时都会初始化为版本控制的目录，以便及时将程序及时推送到本地或远程的版本库。<br>包（Package）：包含了应用代码的一个包，版本库的一个子目录。<br>模块（Module）：一个模块是一个简单的、可以被其它Python文件引入的Python文件。一个包由多个模块组成。</p>
 <h4 id="项目组织"><a href="#项目组织" class="headerlink" title="项目组织"></a>项目组织</h4><hr>
 <ul>
-<li>单一模块<br>许多Flask例子里，我们会看到里面把所有的代码放到一个单一文件中，通常是app.py或myapp.py，如官方的示例代码。对于一些微项目或功能单一的项目，这是一个方便的组织方式，比较需要处理的路由（route）少并且代码量也不大。单一模块的应用组织方式通常如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.py</span><br><span class="line">config.py</span><br><span class="line">requiremnts.txt</span><br><span class="line">static/</span><br><span class="line">templates/</span><br></pre></td></tr></table></figure>
+<li>单一模块<br>许多Flask例子里，我们会看到里面把所有的代码放到一个单一文件中，通常是app.py或myapp.py，如官方的示例代码。对于一些微项目或功能单一的项目，这是一个方便的组织方式，比较需要处理的路由（route）少并且代码量也不大。单一模块的应用组织方式通常如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">app.py</div><div class="line">config.py</div><div class="line">requiremnts.txt</div><div class="line">static/</div><div class="line">templates/</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>在上述组织中，应用逻辑部分通常会存放在app.py中。</p>
 <ul>
 <li><p>包<br>当项目开始变得复杂时，需要处理的路由越来越多，需要为模型（model）和表单（form）定义单独的类，代码量也越来越大，这个时候如果还采取单一模块的方式就会让人变得焦头烂额，同时让code review变得越来越难。为了解决这个问题，可以把应用中不同的组件分开到单独的、高内聚的一组模块——即包中。<br>  基于包的组织方式通常如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">config.py</span><br><span class="line">requirments.txt</span><br><span class="line">run.py</span><br><span class="line">instance/</span><br><span class="line">    /config.py</span><br><span class="line">youapp/</span><br><span class="line">    /__init__.py</span><br><span class="line">    /views.py</span><br><span class="line">    /models.py</span><br><span class="line">    /forms.py</span><br><span class="line">    /static/</span><br><span class="line">    /templates/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">config.py</div><div class="line">requirments.txt</div><div class="line">run.py</div><div class="line">instance/</div><div class="line">    /config.py</div><div class="line">youapp/</div><div class="line">    /__init__.py</div><div class="line">    /views.py</div><div class="line">    /models.py</div><div class="line">    /forms.py</div><div class="line">    /static/</div><div class="line">    /templates/</div></pre></td></tr></table></figure>
 <p>  这种组织模式允许我们有序的整理应用不同组件，将有关模型的定义全部放在models.py，有关路由的定义全部放在views.py里面，有关表单的定义全部放在forms.py里面。<br>  下面列出了大多数Flask应用都有的基本组件，对于实际的应用可能还会需要一些别的文件，但这适用于大多数Flask应用：  </p>
 </li>
 </ul>
@@ -409,7 +409,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -423,7 +423,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

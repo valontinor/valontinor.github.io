@@ -256,10 +256,10 @@
 <li><p>关闭mysql服务：mac下安装完成MySQL后会在“系统偏好设置”里面生成一个MySQL应用的图标，点开后会看见mysql服务的状态：<br> <img src="http://i4.piimg.com/ebf13577edcd596b.jpg" alt="MySQL"><br>如果像图中一样是“running”状态，点击面板里面的“Stop MySQL Server”来关闭mysql服务。</p>
 </li>
 <li><p>禁止mysql验证功能：打开shell终端（或iterm等），进入mysql服务所在文件夹（一般为/usr/local/mysql/bin）执行如下命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/mysql/bin</span><br><span class="line">sudo su    <span class="comment">#切换到超级管理员账号，回车</span></span><br><span class="line"><span class="comment">#此处会要求输入密码</span></span><br><span class="line">./mysqld_safe --skip-grant-tables &amp; <span class="comment">#禁止mysql验证，注意后面的&amp;字符串不要漏了，回车</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/mysql/bin</div><div class="line">sudo su    <span class="comment">#切换到超级管理员账号，回车</span></div><div class="line"><span class="comment">#此处会要求输入密码</span></div><div class="line">./mysqld_safe --skip-grant-tables &amp; <span class="comment">#禁止mysql验证，注意后面的&amp;字符串不要漏了，回车</span></div></pre></td></tr></table></figure>
 <p> 进行上述操作后，mysql会自动重启，此时可以查看偏好设置中的mysql的状态，会发现已经变成running了。 </p>
 </li>
-<li>登陆mysql，更改密码：新开shell终端，进入到mysql文件夹下，登陆mysql，更改密码。<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/mysql/bin</span><br><span class="line">./mysql <span class="comment">#回车后会直接登陆进mysql</span></span><br><span class="line">mysql&gt; FLUSH PRIVILEGES; <span class="comment">#mysql界面的操作，刷新权限</span></span><br><span class="line">mysql&gt; ALTER USER <span class="string">'root'</span>@<span class="string">'localhost'</span> IDENTIFIED BY <span class="string">'MyNewPass'</span>; <span class="comment">#更改密码，适用于MySQL 5.7.6或以上版本</span></span><br><span class="line">mysql&gt; SET PASSWORD FOR <span class="string">'root'</span>@<span class="string">'localhost'</span> = PASSWORD(<span class="string">'MyNewPass'</span>); <span class="comment">#更改密码，适用于MySQL 5.7.5或更早版本</span></span><br></pre></td></tr></table></figure>
+<li>登陆mysql，更改密码：新开shell终端，进入到mysql文件夹下，登陆mysql，更改密码。<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/mysql/bin</div><div class="line">./mysql <span class="comment">#回车后会直接登陆进mysql</span></div><div class="line">mysql&gt; FLUSH PRIVILEGES; <span class="comment">#mysql界面的操作，刷新权限</span></div><div class="line">mysql&gt; ALTER USER <span class="string">'root'</span>@<span class="string">'localhost'</span> IDENTIFIED BY <span class="string">'MyNewPass'</span>; <span class="comment">#更改密码，适用于MySQL 5.7.6或以上版本</span></div><div class="line">mysql&gt; SET PASSWORD FOR <span class="string">'root'</span>@<span class="string">'localhost'</span> = PASSWORD(<span class="string">'MyNewPass'</span>); <span class="comment">#更改密码，适用于MySQL 5.7.5或更早版本</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>至此，密码修改完成，退出后可使用修改后的密码登陆系统。</p>
@@ -355,7 +355,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -369,7 +369,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
